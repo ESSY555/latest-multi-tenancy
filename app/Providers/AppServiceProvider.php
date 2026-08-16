@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tenancy\BranchContext;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -55,10 +56,21 @@ class AppServiceProvider extends ServiceProvider
                 return $role ?: null;
             })());
             
-            // Share current academic year with all views
+            // Share current academic year with all views — only when a branch context exists.
+            // This MUST be guarded: AcademicYear uses BelongsToBranch / BranchScope, which
+            // throws TenantContextMissingException when no branch is in session (e.g. /login).
             $view->with('currentAcademicYear', (function () {
-                $branch = app()->bound('currentBranch') ? app('currentBranch') : null;
+                // Safe check — never touches the DB when context is missing.
+                if (! BranchContext::hasBranch()) {
+                    return null;
+                }
+
+                // Prefer the container-bound instance (set by SetCurrentBranch middleware),
+                // fall back to the raw session value.
+                $branch   = app()->bound('currentBranch') ? app('currentBranch') : null;
                 $branchId = $branch ? $branch->id : session('current_branch_id');
+
+                // $branchId is guaranteed non-null here because hasBranch() returned true.
                 return \App\Models\AcademicYear::getCurrentAcademicYear($branchId);
             })());
 

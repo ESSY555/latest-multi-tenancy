@@ -31,9 +31,18 @@ use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\FormTeacherAssignmentController;
 use App\Http\Controllers\FormTeacherController;
 use App\Http\Controllers\TeacherManagementController;
+use App\Http\Controllers\SchoolRegistrationController;
+
+// School registration — the first page a new school owner sees.
+// Pre-tenant-context: no branch session required.
+Route::get('/register-school', [SchoolRegistrationController::class, 'show'])->name('school.register');
+Route::post('/register-school', [SchoolRegistrationController::class, 'store'])->name('school.register.store');
 
 Route::get('/', function () {
-    // Always show homepage; user stays authenticated and can navigate to dashboard
+    // Guests are directed to school registration; authenticated users see the homepage.
+    if (! auth()->check()) {
+        return redirect()->route('school.register');
+    }
     return view('home');
 });
 

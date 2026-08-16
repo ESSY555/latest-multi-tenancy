@@ -34,17 +34,17 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="{{ route('about') }}"
+                    {{-- <a href="{{ route('about') }}"
                         class="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
                     <a href="{{ route('academic-calendar.calendar') }}"
                         class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Calendar</a>
                     <a href="{{ route('school-news.index') }}"
-                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">School News</a>
+                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">School News</a> --}}
 
 
 
-                    <!-- Admissions Dropdown -->
-                    <div class="relative group">
+                    {{-- Admissions Dropdown --}}
+                    {{-- <div class="relative group">
                         <button
                             class="text-gray-700 hover:text-blue-600 transition-colors font-medium flex items-center">
                             Admissions
@@ -66,15 +66,15 @@
                                     Forms</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <a href="{{ route('contact') }}"
-                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact Us</a>
+                    {{-- <a href="{{ route('contact') }}"
+                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact Us</a> --}}
 
                 
 
-                    <!-- Resources Dropdown -->
-                    <div class="relative group">
+                    {{-- Resources Dropdown --}}
+                    {{-- <div class="relative group">
                         <button
                             class="text-gray-700 hover:text-blue-600 transition-colors font-medium flex items-center">
                             Resources
@@ -98,10 +98,10 @@
                                     Materials</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <a href="{{ route('gallery.index') }}"
-                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Gallery</a>
+                    {{-- <a href="{{ route('gallery.index') }}"
+                        class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Gallery</a> --}}
                 </nav>
 
                 <!-- Right Side Actions -->
@@ -285,23 +285,23 @@
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="/"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Home</a>
-                <a href="{{ route('about') }}"
+                {{-- <a href="{{ route('about') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">About</a>
                 <a href="{{ route('academic-calendar.calendar') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Calendar</a>
                 <a href="{{ route('school-news.index') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">School
-                    News</a>
+                    News</a> --}}
                 <a href="{{ route('academics') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Academics</a>
-                <a href="{{ route('admissions.process') }}"
+                {{-- <a href="{{ route('admissions.process') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Admissions</a>
                 <a href="{{ route('contact') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Contact Us</a>
                 <a href="{{ route('resources.index') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Resources</a>
                 <a href="{{ route('gallery.index') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Gallery</a>
+                    class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md">Gallery</a> --}}
 
                 @auth
                     @unless($hideDashboardButton ?? false)
